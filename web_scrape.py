@@ -1,10 +1,9 @@
 from bs4 import BeautifulSoup
+import requests as re
 import requests
 
-url = "https://pypi.org/project/RandomPi/"
+html_text = requests.get('https://pypi.org/project/RandomPi/').text
+soup = BeautifulSoup(html_text, features='html.parser')
+name = soup.find('h1', class_ = 'package-header__name').text
 
-result = requests.get(url)
-soup = BeautifulSoup(result.text, "html.parser")
-
-date = soup.find_all(class='package-header__date')
-print(date)
+print(name)
