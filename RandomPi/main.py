@@ -24,10 +24,3 @@ def get_random_pi():
             print("No projects found.")
     else:
         print("Failed to fetch projects:", response.status_code, response.text)
-
-
-def get_random_pi_info():
-    print('placeholder')
-
-
-execute = get_random_pi_info()
