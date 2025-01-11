@@ -26,4 +26,25 @@ def get_random_pi():
         print("Failed to fetch projects:", response.status_code, response.text)
 
 
-# execute = get_random_pi()
+def get_random_info():
+
+    url = "https://pypi.org/pypi/RandomPi/json"
+    response = requests.get(url, headers={"Accept": "application/json"})
+
+    if response.status_code == 200:
+
+        data = response.json()
+
+        project_name = data.get("info", {}).get("name", "Unknown")
+        version = data.get("info", {}).get("version", "Unknown")
+        author = data.get("info", {}).get("author", "Unknown")
+        summary = data.get("info", {}).get("summary", "No summary available")
+
+        print(f"Project Name: {project_name}")
+        print(f"Version: {version}")
+        print(f"Author: {author}")
+        print(f"Summary: {summary}")
+    else:
+        print(f"Failed to fetch data. HTTP Status Code: {response.status_code}")
+
+execute = get_random_info()
