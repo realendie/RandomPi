@@ -53,14 +53,16 @@ def get_random_info():
         summary = data.get("info", {}).get("summary", "No summary available")
 
         print(f"Project Name: {project_name}")
+        print(f"URL: pypi.org/project/{project_name}/")
         print(f"Latest Version: {version}")
         print(f"Author: {author}")
         print(f"Summary: {summary}")
     else:
         print(f"Failed to fetch data. HTTP Status Code: {response.status_code}")
 
+
 def get_project_info():
-    project = input('Project Name:\n')
+    project = input("Project Name:\n")
 
     url = f"https://pypi.org/pypi/{project}/json"
     response = requests.get(url, headers={"Accept": "application/json"})
@@ -75,10 +77,12 @@ def get_project_info():
         summary = data.get("info", {}).get("summary", "No summary available")
 
         print(f"Project Name: {project_name}")
+        print(f"URL: pypi.org/project/{project_name}/")
         print(f"Latest Version: {version}")
         print(f"Author: {author}")
         print(f"Summary: {summary}")
     else:
         print(f"Failed to fetch data. HTTP Status Code: {response.status_code}")
+
 
 execute = get_project_info()
