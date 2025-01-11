@@ -27,8 +27,20 @@ def get_random_pi():
 
 
 def get_random_info():
+    url1 = "https://pypi.org/simple/"
+    headers1 = {"Accept": "application/vnd.pypi.simple.v1+html"}
 
-    url = "https://pypi.org/pypi/RandomPi/json"
+    response1 = requests.get(url1, headers=headers1)
+
+    if response1.status_code == 200:
+        projects = response1.text
+
+        soup = BeautifulSoup(projects, "html.parser")
+        project_links = soup.find_all("a")
+        project_names = [link.text for link in project_links]
+        project = random.choice(project_names)
+
+    url = f"https://pypi.org/pypi/{project}/json"
     response = requests.get(url, headers={"Accept": "application/json"})
 
     if response.status_code == 200:
@@ -41,7 +53,7 @@ def get_random_info():
         summary = data.get("info", {}).get("summary", "No summary available")
 
         print(f"Project Name: {project_name}")
-        print(f"Version: {version}")
+        print(f"Latest Version: {version}")
         print(f"Author: {author}")
         print(f"Summary: {summary}")
     else:
