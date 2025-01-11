@@ -10,7 +10,7 @@ setup(
     author_email="enderprooffical@gmail.com",
     license="Appache 2.0",
     license_files="LICENSE",
-    version="1.0.2",
+    version="2.0.0",
     packages=find_packages(),
     install_requires=[
         "beautifulsoup4==4.12.3",
@@ -19,7 +19,7 @@ setup(
         "charset-normalizer==3.4.1",
         "idna==3.10",
         "requests==2.32.3",
-        "setuptools==75.6.0",
+        "setuptools==75.8.0",
         "soupsieve==2.6",
         "urllib3==2.3.0",
     ],
@@ -31,6 +31,8 @@ setup(
         "console_scripts": [
             "get_random_pi = RandomPi:get_random_pi",
             "get_randompi = RandomPi:get_random_pi",
+            "get_random_info = RandomPi:get_random_info",
+            "get_project_info = RandomPi:get_project_info",
         ]
     },
 )
