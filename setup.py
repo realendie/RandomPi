@@ -5,12 +5,12 @@ with open("README.md", "r") as file:
 
 setup(
     name="RandomPi",
-    url="https://github.com/realendie/RandomPy/tree/PIP",
+    url="https://github.com/realendie/RandomPi",
     author="Wyatt Johnson",
     author_email="enderprooffical@gmail.com",
     license="Appache 2.0",
     license_files="LICENSE",
-    version="2.0.1",
+    version="2.0.2",
     packages=find_packages(),
     install_requires=[
         "beautifulsoup4==4.12.3",
