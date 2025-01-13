@@ -10,7 +10,7 @@ setup(
     author_email="enderprooffical@gmail.com",
     license="Appache 2.0",
     license_files="LICENSE",
-    version="2.0.0",
+    version="2.0.1",
     packages=find_packages(),
     install_requires=[
         "beautifulsoup4==4.12.3",
