@@ -19,7 +19,6 @@ def get_random_pi():
         if project_names:
             random_project = random.choice(project_names)
             print(f"pypi.org/project/{random_project}/")
-            return random_project
         else:
             print("No projects found.")
     else:
