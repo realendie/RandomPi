@@ -83,6 +83,3 @@ def get_project_info():
         print(f"Summary: {summary}")
     else:
         print(f"Failed to fetch data. HTTP Status Code: {response.status_code}")
-
-
-execute = get_project_info()
