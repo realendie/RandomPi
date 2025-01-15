@@ -33,6 +33,7 @@ setup(
             "get_randompi = RandomPi:get_random_pi",
             "get_random_info = RandomPi:get_random_info",
             "get_project_info = RandomPi:get_project_info",
+            "download_random_pi = RandomPi:download_random_pi",
         ]
     },
 )
