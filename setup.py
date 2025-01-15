@@ -10,7 +10,7 @@ setup(
     author_email="enderprooffical@gmail.com",
     license="Appache 2.0",
     license_files="LICENSE",
-    version="2.0.2",
+    version="3.0.0",
     packages=find_packages(),
     install_requires=[
         "beautifulsoup4==4.12.3",
@@ -24,7 +24,7 @@ setup(
         "urllib3==2.3.0",
     ],
     keywords=["python", "random", "pypi", "package", "random package"],
-    short_description="RandomPi is a simple package that uses the PyPi api to get a random python package.",
+    summary="RandomPi is a simple package that uses the PyPi api to get a random python package.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     entry_points={
