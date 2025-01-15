@@ -2,6 +2,8 @@ import requests
 import random
 from bs4 import BeautifulSoup
 import subprocess
+import os
+import platform
 
 
 def get_random_pi():
@@ -111,11 +113,19 @@ def download_random_pi():
         author = data.get("info", {}).get("author", "Unknown")
         summary = data.get("info", {}).get("summary", "No summary available")
 
-        try:
-            subprocess.run(f"pip install {project_name}")
+        os = platform.system()
 
-        except:
-            print(f"Failed to install package.")
+        if os == "Windows":
+            try:
+                subprocess.run(f"pip install {project_name}")
+            except:
+                print(f"Failed to install package.")
+        else:
+            try:
+                subprocess.run(f"pip3 install {project_name}")
+
+            except:
+                print(f"Failed to install package.")
 
         print(f"\nProject Name: {project_name}")
         print(f"URL: pypi.org/project/{project_name}/")
