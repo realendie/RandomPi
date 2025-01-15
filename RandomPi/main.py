@@ -1,6 +1,9 @@
 import requests
 import random
 from bs4 import BeautifulSoup
+import subprocess
+import os
+import platform
 
 
 def get_random_pi():
@@ -82,3 +85,55 @@ def get_project_info():
         print(f"Summary: {summary}")
     else:
         print(f"Failed to fetch data. HTTP Status Code: {response.status_code}")
+
+
+def download_random_pi():
+    url1 = "https://pypi.org/simple/"
+    headers1 = {"Accept": "application/vnd.pypi.simple.v1+html"}
+
+    response1 = requests.get(url1, headers=headers1)
+
+    if response1.status_code == 200:
+        projects = response1.text
+
+        soup = BeautifulSoup(projects, "html.parser")
+        project_links = soup.find_all("a")
+        project_names = [link.text for link in project_links]
+        project = random.choice(project_names)
+
+    url = f"https://pypi.org/pypi/{project}/json"
+    response = requests.get(url, headers={"Accept": "application/json"})
+
+    if response.status_code == 200:
+
+        data = response.json()
+
+        project_name = data.get("info", {}).get("name", "Unknown")
+        version = data.get("info", {}).get("version", "Unknown")
+        author = data.get("info", {}).get("author", "Unknown")
+        summary = data.get("info", {}).get("summary", "No summary available")
+
+        os = platform.system()
+
+        if os == "Windows":
+            try:
+                subprocess.run(f"pip install {project_name}")
+            except:
+                print(f"Failed to install package.")
+        else:
+            try:
+                subprocess.run(f"pip3 install {project_name}")
+
+            except:
+                print(f"Failed to install package.")
+
+        print(f"\nProject Name: {project_name}")
+        print(f"URL: pypi.org/project/{project_name}/")
+        print(f"Latest Version: {version}")
+        print(f"Author: {author}")
+        print(f"Summary: {summary}")
+    else:
+        print(f"Failed to fetch data. HTTP Status Code: {response.status_code}")
+
+
+execute = download_random_pi()

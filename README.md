@@ -1,4 +1,4 @@
-# RandomPi v2.0.2
+# RandomPi v3.0.0
 
 RandomPi is a simple package that uses the PyPi api to get a random python package.
 
@@ -18,6 +18,7 @@ RandomPi is a simple package that uses the PyPi api to get a random python packa
     get_random_pi
     get_random_info
     get_project_info
+    download_random_pi
 ```
 
 ## PyPi Index Api
